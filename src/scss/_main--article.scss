@@ -1,0 +1,21 @@
+.main__article {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 20px 1fr;
+    padding: 5px;
+
+    .main__form--result {
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-auto-rows: 1fr 1fr auto;
+        min-height: 550px;
+
+        .main__button {
+            @include button;
+            margin: 5px 15%;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    }
+
+}

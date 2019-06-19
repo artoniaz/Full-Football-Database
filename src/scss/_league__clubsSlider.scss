@@ -1,0 +1,30 @@
+.clubsSlider{
+    position: relative;
+    .clubsSlider__activeClub{
+        @include center;
+        top: 40%;
+        h2{
+            font-size: 20px;
+        }
+    }
+    .clubsSlider__minorClub{
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%) scale(0.5);
+        filter: grayscale(100%);
+    }
+    .clubsSlider__minorClub--left{
+        left: -5%;
+    }
+    .clubsSlider__minorClub--right{
+        right: -5%;
+    }
+    .clubsSlider__button{
+        @include button;
+        position: absolute;
+        font-size: 20px;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,41 @@
+.teams {
+    list-style: none;
+}
+
+.team {
+    border-top: 1px solid $bright-color;
+    border-bottom: 1px solid $bright-color;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0 5px 25px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+
+    .team__imgContainer {
+        width: 7vw;
+
+        img {
+            width: 100%;
+        }
+    }
+    .team__name{
+        padding-left: 20px;
+    }
+}
+
+// padding: 10px;
+// .team__imgContainer{
+//     position: relative;
+//     display: inline-block;
+//     width: 7vw;
+//     height: 7vw;
+//     img{
+//         @include center;
+//         width: 100%;
+//     }
+// }
+// .team__name{
+//     display: inline-block;
+// }

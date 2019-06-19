@@ -1,0 +1,10 @@
+.main {
+    @include wrapper;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 150px 1fr;
+    background-color: $dark-color;
+    text-align: center;
+    overflow: hidden;
+    
+}

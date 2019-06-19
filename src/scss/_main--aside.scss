@@ -1,0 +1,31 @@
+.main__search {
+    @include border;
+    padding: 0.5rem;
+
+    .main__header {
+        text-transform: uppercase;
+    }
+
+    .main__text {
+        font-size: 12px;
+    }
+
+    #main__categories {
+        @include button;
+        margin: 5px;
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    .main__input {
+        padding: 2px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .main__button {
+        @include button;
+        display: inline-block;
+        margin-top: 10px;
+    }
+}

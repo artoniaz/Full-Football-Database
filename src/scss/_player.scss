@@ -1,0 +1,93 @@
+.playerBio {
+    position: relative;
+    @include border;
+
+    .playerBio__name {
+        margin: 8px;
+    }
+
+    >p {
+        margin: 2px;
+        margin-left: 40px;
+        text-align: left;
+
+        .playerBio__teamLink {
+            text-decoration: none;
+            color: $bright-color;
+        }
+    }
+
+    .playerBio__imgContainer {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 25%;
+        margin: 8px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.playerStats {
+    position: relative;
+
+    h2 {
+        margin: 10px;
+    }
+
+    >p {
+        text-align: left;
+        margin: 4px;
+        margin-left: 40px;
+        font-size: 12px;
+    }
+
+    .playerStats__footballPitch {
+        width: 180px;
+        height: 280px;
+        background-image: url(../imgs/grass-114651_1920.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: rotate(90deg);
+        position: absolute;
+        top: 0;
+        right: -5%;
+
+        .playerStats__positionMarker {
+            display: block;
+            width: 45px;
+            height: 119px;
+            background-color: rgba($color: $bright-color, $alpha: 0.5);
+            position: absolute;
+            bottom: 80px;
+            // right: 110px;
+            z-index: 9;
+        }
+
+        h3 {
+            transform: rotate(-90deg);
+            position: absolute;
+            bottom: 130px;
+            right: -70px;
+            font-size: 20px;
+            z-index: 99;
+        }
+    }
+
+    
+
+    // .playerStats__footballPitch:after {
+    //     content: "";
+    //     display: block;
+    // width: 45px;
+    // height: 119px;
+    // background-color: rgba($color: $bright-color, $alpha: 0.5);
+    // position: absolute;
+    // // bottom: 80px;
+    // // right: 25px;
+    // z-index: 9;
+    // }
+}

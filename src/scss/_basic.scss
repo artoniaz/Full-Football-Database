@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$dark-color: #2B2626;
+$bright-color: #bada55;
+$font-white: white;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    color: $font-white;
+}
+.contener{
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px minmax(200px, 1fr) 60px;
+}
+
+@mixin small-header {
+    padding: 0.5rem;
+    text-transform: uppercase;   
+}
+
+@mixin button {
+    padding: 10px;
+    color: $dark-color;
+    background-color: $bright-color;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid $bright-color;
+    text-decoration: none;
+}
+
+@mixin wrapper {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+@mixin border {
+    border-bottom: 5px solid $bright-color;
+}
+
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+select:focus{outline: 0}
+input:focus{outline: 0}
+button:focus{outline: 0}
+
