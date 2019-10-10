@@ -1,17 +1,17 @@
+
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import Country from './Country';
 import Search from './Search';
-
-import {
-    Link
-} from 'react-router-dom';
+import Bear from './Bear';
 
 class Main extends Component {
 
     state = {
         currentCountry: 0,
-        currentLeague: 0,  // 0 or 1
-        currentCountryDetails: "",
+        currentLeague: 0,
+        currentCountryDetails: ""
     };
 
     leaguesData = [
@@ -59,7 +59,6 @@ class Main extends Component {
             };
 
         } else {
-            //check if e.target is left
             if ([...classList].indexOf("fa-chevron-left") !== -1) {
                 currentCountry--;
                 if (currentCountry < 0) {
@@ -73,7 +72,6 @@ class Main extends Component {
             }
             currentLeague = 0;
         }
-        //name of current country
         const currentCountryName = this.leaguesData[currentCountry].country;
 
         const unirest = require('unirest');
@@ -89,27 +87,7 @@ class Main extends Component {
             });
     }
 
-    render() {
-        
-        const currentLeagueID = this.leaguesData[this.state.currentCountry].leaguesIDs[this.state.currentLeague];
-        const currentPath = `/league/${currentLeagueID}`;
-        
-        return (
-            <main className="main">
-                <Search />
-                <article className="main__article">
-                    <h2 className="main__header">selet the leauge</h2>
-                    <form className="main__form--result">
-                        <Country countryDetails={this.state.currentCountryDetails} changeCountry={this.changeCountryOrLeague} />
-                        <Link to={currentPath} className="main__button">choose</Link>
-                    </form>
-                </article>
-            </main>
-        )
-    };
-
     componentDidMount() {
-        //name of current country
         const currentCountryName = this.leaguesData[this.state.currentCountry].country;
 
         const unirest = require('unirest');
@@ -123,6 +101,23 @@ class Main extends Component {
             });
     };
 
+    render() {
+        const currentLeagueID = this.leaguesData[this.state.currentCountry].leaguesIDs[this.state.currentLeague];
+        const currentPath = `/league/${currentLeagueID}`;
+        return (
+            <main className="main">
+                <Search/>
+                <article className="main__article">
+                    <h2 className="main__header">select the leauge</h2>
+                    <form className="main__form--result">
+                        <Country countryDetails={this.state.currentCountryDetails} changeCountry={this.changeCountryOrLeague} />
+                        <Link to={currentPath} className="main__button">choose</Link>
+                    </form>
+                </article>
+                {window.innerWidth >= 992 && <Bear flag={this.state.currentCountryDetails.flag}/>}
+            </main>
+        )
+    };
 }
 
 export default Main;

@@ -5,7 +5,6 @@ const ClubDetails = props => {
     const {logo, name,venue_city, founded, venue_capacity, venue_name} = props.teamInfo;
 
     return (
-        
         <div className="teamInfo__info">
             <div className="teamInfo__imgContainer">
                 <img src={logo} alt="logo of a team" className="teamInfo__img"/>

@@ -1,62 +1,56 @@
+
 import React, { Component } from 'react';
-import {
-    Link
-  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import ErrorMessage from './ErrorMessage';
 
 class Search extends Component {
 
     state = {
-        optionValue: "league",
         userValue: "",
-    }
+        path: "",
+        enableErrorMessage: false
+    };
 
-    path = "";
+    // handleInput = e => {
+    //     const userValue = e.target.value;
+    //     const unirest = require("unirest");
+    //     const req = unirest("GET", `https://api-football-v1.p.rapidapi.com/v2/leagues/country/${userValue}/2019`);
+    //     req.headers({
+    //         "x-main__searchActivedapi-host": "api-football-v1.p.rapidapi.com",
+    //         "x-rapidapi-key": "1346a6a8d4mshc714b2d3f021692p18d59ejsn2cb7d0c03447"
+    //     });
 
-    handleSelect = e => {
-        const optionValue = e.target.value;
-        this.setState({
-            optionValue,
-        })
-    }
+    //     req.end((res) => {
+    //         if (res.body.api.results > 0) {
+    //             const league_id = res.body.api.leagues[0].league_id;
+    //             this.path = `/league/${league_id}`;
+    //         }
+    //     });
+    //     console.log(this.path);
+    // };
 
-    handleInput = e => {
-        const userValue = e.target.value;
-        this.setState({
-            userValue,
-        })
-    }
+    // toggleErrorMessage = e => {
+    //     e.preventDefault();
+    //     this.state.userValue === "" && this.setState({ enableErrorMessage: !this.state.enableErrorMessage });
+    //     if (this.state.userValue !== "" && this.path === "") this.setState({
+    //         enableErrorMessage: !this.state.enableErrorMessage,
+    //         userValue: ""
+    //     });
+    // };
 
     render() {
-        const {optionValue} = this.state;
         return (
             <aside className="main__search">
-                <h2 className="main__header">search</h2>
-                    <label className="main__text">select the category:
-                        <select name="categories" id="main__categories" onChange={this.handleSelect} value={optionValue}>
-                            {/* <option value="country">country</option> */}
-                            <option value="league">league</option>
-                            <option value="team">team</option>
-                            <option value="player">country</option>
-                        </select>
-                    </label>
-                    <input className="main__input" type="text" placeholder="what are you looking for?" onChange={this.handleInput}/>
-                <Link to={this.path} className="main__button">search</Link>
+                <h2 className="main__header">quick search</h2>
+                <p className="main__text">Which country are you looking for?</p>
+                <input className="main__input" type="text" placeholder="country name" onChange={this.handleInput} value={this.state.userValue} />
+                <Link to={this.state.path} className="main__button">search</Link>
+                {this.state.enableErrorMessage && <ErrorMessage userValue={this.state.userValue} closeErrorMessage={this.closeErrorMessage} userValue={this.state.userValue} />}
             </aside>
-        )
+        );
     }
 
-    componentDidUpdate() {
-        const {optionValue, userValue} = this.state;
-        if (optionValue === "league"){
-            this.path = `/league/:${userValue}`
-        } else if (optionValue === "team"){
-            this.path = `/team/:${userValue}`
-        } else {
-            this.path = `/player/:${userValue}`
-        }
-        console.log(this.path);
-        
-    }
-}
+};
 
 export default Search;

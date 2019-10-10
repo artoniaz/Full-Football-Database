@@ -1,7 +1,10 @@
+
 import React, { Component } from 'react';
+
 import PlayerBio from './PlayerBio';
 import PlayerStats from './PlayerStats';
-
+import Search from './Search';
+import Loop from './Loop';
 
 class Player extends Component {
 
@@ -10,54 +13,32 @@ class Player extends Component {
         playerInfo: "",
         teamID: "",
         teamLogo: "",
-        national: "",
         nationalTeamName: "",
+        activeSearch: false
     }
 
-    render() {
-        const { playerInfo, teamLogo, nationalTeamName } = this.state;
-        return (
-            <main className="main">
-                <PlayerBio playerInfo={playerInfo} teamLogo={teamLogo} nationality={nationalTeamName} />
-                {this.state.playerInfo && <PlayerStats playerInfo={playerInfo}/>}
-            </main>
-        )
-    }
+    toggleActiveSearch = () => {
+        this.setState({ activeSearch: !this.state.activeSearch })
+    };
+
     componentDidMount() {
 
         const { playerID } = this.state;
 
-        const unirest = require('unirest');
-        unirest.get(`https://api-football-v1.p.rapidapi.com/v2/players/player/${playerID}`)
-            .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-            .header("X-RapidAPI-Key", "1346a6a8d4mshc714b2d3f021692p18d59ejsn2cb7d0c03447")
-            .end((result) => {
-                let num = 0;
-                let national = -1;
-                const data = result.body.api.players;
-
-                if (data.length > 1) {
-                    if (data[1].team_id > data[0].team_id) {
-                        num = 1;
-                        national = data[0].team_id;
-                    } else {
-                        national = data[1].team_id;
-                    };
-                };
-                if (national >= 0) {
-                    this.setState({
-                        playerInfo: result.body.api.players[num],
-                        teamID: result.body.api.players[num].team_id,
-                        national,
-                    })
-                } else {
-                    this.setState({
-                        playerInfo: result.body.api.players[num],
-                        teamID: result.body.api.players[num].team_id,
-                    })
-                }
-            });
-    }
+        const unirest = require("unirest");
+        const req = unirest("GET", `https://api-football-v1.p.rapidapi.com/v2/players/player/${playerID}/2019-2020`);
+        req.headers({
+            "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+            "x-rapidapi-key": "1346a6a8d4mshc714b2d3f021692p18d59ejsn2cb7d0c03447"
+        });
+        req.end((res) => {
+            if (res.error) throw new Error(res.error);
+            this.setState({
+                playerInfo: res.body.api.players[0],
+                teamID: res.body.api.players[0].team_id,
+            })
+        });
+    };
 
     componentDidUpdate() {
         if (!this.state.teamLogo) {
@@ -72,19 +53,21 @@ class Player extends Component {
                     })
                 });
         }
-        if (!this.state.nationalTeamName && this.state.national) {
-            const { national } = this.state;
-            const unirest = require('unirest');
-            unirest.get(`https://api-football-v1.p.rapidapi.com/v2/teams/team/${national}`)
-                .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-                .header("X-RapidAPI-Key", "1346a6a8d4mshc714b2d3f021692p18d59ejsn2cb7d0c03447")
-                .end((result) => {
-                    this.setState({
-                        nationalTeamName: result.body.api.teams[0].name,
-                    })
-                });
-        }
+    }
+
+    render() {
+        const { playerInfo, teamLogo } = this.state;
+        return (
+            <main className="main">
+                {window.innerWidth >= 992 ? <> <Search /> <PlayerBio playerInfo={playerInfo} teamLogo={teamLogo} /> </> :
+                this.state.activeSearch ? <Search /> : <PlayerBio playerInfo={playerInfo} teamLogo={teamLogo} />}
+                {this.state.playerInfo && <PlayerStats playerInfo={playerInfo} />}
+                <Loop toggleActiveSearch={this.toggleActiveSearch} />
+            </main>
+        )
     }
 }
+
+
 
 export default Player;

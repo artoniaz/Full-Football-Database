@@ -8,13 +8,7 @@
 
     .main__text {
         font-size: 12px;
-    }
-
-    #main__categories {
-        @include button;
         margin: 5px;
-        padding: 5px;
-        font-size: 10px;
     }
 
     .main__input {
@@ -27,5 +21,11 @@
         @include button;
         display: inline-block;
         margin-top: 10px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .main__search {
+        border-bottom: 0;
     }
 }

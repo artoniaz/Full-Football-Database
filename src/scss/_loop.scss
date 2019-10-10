@@ -1,9 +1,10 @@
-.loop{
-    i{
+.loop {
+    i {
         font-size: 35px;
-        position: absolute;
-        top: 50%;
+        color: black;
+        position: fixed;
+        top: 2%;
         right: 5%;
-        transform: translateY(-50%);
+        z-index: 99;
     }
 }

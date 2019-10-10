@@ -1,0 +1,206 @@
+$bear__color--main: #9B575A;
+$bear__color--minor: #e0bf9e;
+$bear__color--additions: black;
+
+.bear__frame {
+    position: relative;
+    grid-area: bear;
+    background-color: $dark-color;
+    width: 300px;
+    height: 400px;
+    border: 10px solid $bright-color;
+    z-index: 3;
+
+    .bear__head {
+        position: absolute;
+        @include center;
+        top: 100px;
+        width: 130px;
+        height: 110px;
+        border-radius: 50%;
+        background-color: $bear__color--main;
+
+        .bear__mouth {
+            @include center;
+            top: 72%;
+            width: 55px;
+            height: 70px;
+            background-color: $bear__color--minor;
+            border-radius: 45%;
+
+            &:before {
+                content: "";
+                @include center;
+                top: 30%;
+                width: 30px;
+                height: 20px;
+                background-color: $bear__color--additions;
+                border-radius: 45%;
+            }
+
+            &:after {
+                content: "";
+                @include center;
+                top: 75%;
+                width: 20px;
+                height: 10px;
+                background-color: $bear__color--additions;
+                border-radius: 50%;
+            }
+        }
+
+        .bear__eye {
+            // @include center;
+            position: absolute;
+            top: 30%;
+            width: 8px;
+            height: 8px;
+            background-color: $bear__color--additions;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px white;
+        }
+
+        .bear__eye--first {
+            left: 27%;
+        }
+
+        .bear__eye--second {
+            left: 67%;
+        }
+    }
+
+    .bear__ear {
+        position: absolute;
+        top: 12%;
+        background-color: $bear__color--minor;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        z-index: -1;
+        box-shadow: 0 0 0 10px $bear__color--main;
+    }
+
+    .bear__ear--first {
+        left: 26%;
+    }
+
+    .bear__ear--second {
+        right: 26%;
+    }
+
+    .bear__body {
+        @include center;
+        top: 52%;
+        width: 90px;
+        height: 100px;
+        background-color: $bright-color;
+        z-index: -1;
+
+        .bear__flag {
+            position: absolute;
+            top: 7%;
+            left: 2%;
+            width: 20px;
+            height: 15px;
+            background-position: center;
+            background-size: cover;
+            z-index: 10;
+        }
+
+        .bear__hand {
+            position: absolute;
+            top: 7%;
+            left: -55%;
+            width: 80px;
+            height: 40px;
+            border-radius: 45%;
+            background-color: $bright-color;
+        }
+
+        .bear__hand--first {
+            transform: rotate(-45deg);
+            left: -55%;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 44%;
+                left: -10%;
+                transform: rotate(45deg);
+                width: 80px;
+                height: 40px;
+                border-radius: 50px;
+                background-color: $bear__color--main;
+
+            }
+        }
+
+        .bear__hand--second {
+            transform: rotate(45deg);
+            left: 60%;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 73%;
+                left: 60%;
+                transform: rotate(-45deg);
+                width: 80px;
+                height: 40px;
+                border-radius: 50px;
+                background-color: $bear__color--main;
+                transform-origin: 0% 20%;
+                animation: wave 0.5s infinite linear alternate;
+            }
+        }
+
+        .bear__paw {
+            position: absolute;
+            top: 65%;
+            width: 80px;
+            height: 40px;
+            border-radius: 50px;
+            background-color: $bear__color--additions;
+        }
+
+        .bear__paw--first {
+            left: -46%;
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 32%;
+                top: -6%;
+                width: 50px;
+                height: 20px;
+                border-radius: 50px;
+                transform: rotate(55deg);
+                box-shadow: 0 0 0 10px black;
+                background-color: $bear__color--main;
+            }
+        }
+
+        .bear__paw--second {
+            left: 52%;
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 5%;
+                top: -6%;
+                width: 50px;
+                height: 20px;
+                border-radius: 50px;
+                transform: rotate(-55deg);
+                box-shadow: 0 0 0 10px black;
+                background-color: $bear__color--main;
+            }
+        }
+    }
+}
+
+@keyframes wave {
+    100% {
+        transform: rotate(-80deg)
+    }
+}

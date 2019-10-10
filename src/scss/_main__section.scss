@@ -40,6 +40,76 @@
 
     h3 {
         font-size: 20px;
+    }
+}
 
+@media all and (min-width: 568px) and (orientation: landscape) {
+
+    .main__section {
+        .main__imageContainer {
+            .imgContainer {
+                height: 100px;
+
+                img {
+                    width: 20%;
+                    max-height: 100px;
+                }
+            }
+
+            .fa-chevron-left {
+                padding-left: 50px;
+            }
+
+            .fa-chevron-right {
+                padding-right: 50px;
+            }
+        }
+
+    }
+}
+
+@media all and (min-width: 768px) and (orientation: landscape) {
+    .main__section {
+        max-height: 200px;
+
+        .main__imageContainer {
+            margin: 40px;
+            .imgContainer {
+                img {
+                    max-height: 150px;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+@media all and (min-width: 992px) and (orientation: landscape) {
+    .main__section {
+        .main__imageContainer {
+            .imgContainer {
+                img {
+                    max-height: 150px;
+                }
+            }
+        }
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .main__section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .main__imageContainer {
+            .imgContainer {
+                height: 150px;
+
+                img {
+                    max-height: 150px;
+                }
+            }
+        }
     }
 }

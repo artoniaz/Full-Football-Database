@@ -8,8 +8,15 @@
         margin: 2vw;
         width: 20%;
 
+
         .teamInfo__img {
             width: 100%;
+        }
+
+        @media all and (min-width: 500px) {
+            .teamInfo__img {
+                width: 60%;
+            }
         }
     }
 
@@ -39,23 +46,80 @@
         border-top: 3px solid $bright-color;
         border-bottom: 3px solid $bright-color;
     }
+    @media all and (min-width: 992px) {
+        > p {
+        border-right: 1px solid $bright-color;
+        }
+    }
 }
 
 .playerBar {
-    text-align: left;
+    display: flex;
+    align-items: center;
     border: 1px solid $bright-color;
-    padding: 8px;
-    font-size: 12px;
-    display: block;
-    color: white;
     text-decoration: none;
-
-    .playerBar__number {
-        margin-left: 40px;
-    }
+    padding: 8px;
 
     .playerBar__name {
-        display: inline-block;
+        font-size: 12px;
+        color: white;
+        margin-left: 20px;
+    }
+
+    .playerBar__flag {
+        background-position: center;
+        background-size: cover;
+        width: 20px;
+        height: 14px;
         margin-left: 20px;
     }
 }
+
+@media all and (min-width: 992px) {
+    .teamInfo__info {
+
+        // border-right: 10px solid $bright-color;
+        .teamInfo__imgContainer {
+            transform: translate(-100%);
+
+            .teamInfo__img {
+                width: 35%;
+            }
+        }
+    }
+
+    // .teamInfo__players {
+    //     >p {
+    //         border-right: 1px solid $bright-color;
+    //     }
+    // }
+}
+
+// .playerBar {
+//     text-align: left;
+//     border: 1px solid $bright-color;
+//     padding: 8px;
+//     font-size: 12px;
+//     display: block;
+//     color: white;
+//     text-decoration: none;
+
+//     // .playerBar__number {
+//     //     margin-left: 40px;
+//     // }
+
+//     .playerBar__name {
+//         display: inline-block;
+//         margin-left: 20px;
+//     }
+
+//     .playerBar__flag {
+//         display: inline-block;
+//         background-position: center;
+//         background-size: cover;
+//         width: 20px;
+//         height: 14px;
+//         margin-left: 20px;
+//     }
+
+// }

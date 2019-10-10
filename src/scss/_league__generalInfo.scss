@@ -19,6 +19,12 @@
         img {
             width: 100%;
         }
+
+        @media all and (min-width: 600px) {
+            img {
+                width: 50%;
+            }
+        }
     }
 
     .generalInfo__imgContainer--right {
@@ -28,5 +34,11 @@
 
     .generalInfo__imgContainer--left {
         left: 2vw;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .generalInfo {
+        // border-right: 5px solid $bright-color;
     }
 }

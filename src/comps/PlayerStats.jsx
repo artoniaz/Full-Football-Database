@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const PlayerStats = props => {
@@ -20,20 +21,15 @@ const PlayerStats = props => {
         }
     }
 
-    if (position === "G") {
-        position = "Goalkeeper";
+    if (position === "Goalkeeper") {
         right = positionCords.goalkeeper.right;
-    } else if (position === "D") {
-        position = "Defender";
+    } else if (position === "Defender") {
         right = positionCords.defender.right;
-    } else if (position === "M") {
-        position = "Midfielder";
+    } else if (position === "Midfielder") {
         right = positionCords.midfielder.right;
     } else {
         position = "Stricker";
         right = positionCords.stricker.right;
-
-
     }
 
     return (

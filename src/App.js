@@ -1,7 +1,7 @@
-import React, {
-  Component
-} from 'react';
-import './css/App.css';
+
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Header from './comps/Header';
 import Main from './comps/Main';
 import Footer from './comps/Footer';
@@ -9,17 +9,9 @@ import League from './comps/League';
 import TeamInfo from './comps/TeamInfo';
 import Player from './comps/Player';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
-
-
-
+import './css/App.css';
 
 class App extends Component {
-
   render() {
     return (
       <Router>
@@ -34,6 +26,6 @@ class App extends Component {
       </Router >
     )
   }
-}
+};
 
 export default App;

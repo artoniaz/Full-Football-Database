@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class Loop extends Component{
-    render(){
-        return(
+class Loop extends Component {
+    render() {
+        return (
             <div className="loop">
-                <i className="fas fa-search"></i>
+                <i onClick={this.props.toggleActiveSearch} className="fas fa-search"></i>
             </div>
         )
     }
-}
+};
 
 export default Loop;

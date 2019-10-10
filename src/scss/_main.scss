@@ -2,9 +2,24 @@
     @include wrapper;
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: 150px 1fr;
+    grid-auto-rows: 150px 1fr 0;
     background-color: $dark-color;
     text-align: center;
     overflow: hidden;
-    
+};
+
+@media all and (min-width: 992px) {
+    .main {
+        grid-template-columns: 4fr 1fr;
+        grid-auto-rows: auto;
+        grid-template-areas:
+        "article aside"
+        "article bear";
+        .main__search {
+            grid-area: aside;
+        }
+        .main__article {
+            grid-area: article;
+        }
+    }
 }
