@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Country from './Country';
 import Search from './Search';
 import Bear from './Bear';
+import Game from './Game';
 
 class Main extends Component {
 
@@ -39,7 +40,9 @@ class Main extends Component {
             country: "Spain",
             leaguesIDs: [30, 33],
         },
-    ]
+    ];
+
+    bearSentence = "Hey! I'm Bear and I'm here to help you. Just choose the country you are interested in and then, the league you wish. Accept with the 'choose' button.";
 
     changeCountryOrLeague = e => {
         let { currentCountry, currentLeague } = this.state;
@@ -114,7 +117,8 @@ class Main extends Component {
                         <Link to={currentPath} className="main__button">choose</Link>
                     </form>
                 </article>
-                {window.innerWidth >= 992 && <Bear flag={this.state.currentCountryDetails.flag}/>}
+                {window.innerWidth >= 992 && <Bear flag={this.state.currentCountryDetails.flag} sentence={this.bearSentence}/>}
+                <Game />
             </main>
         )
     };

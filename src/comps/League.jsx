@@ -5,6 +5,7 @@ import GeneralInfo from './GeneralInfo';
 import ClubsSlider from './ClubsSlider';
 import Search from './Search';
 import Loop from './Loop';
+import Bear from './Bear';
 
 class League extends Component {
 
@@ -15,6 +16,8 @@ class League extends Component {
         activeClub: 0,
         activeSearch: false
     }
+
+    bearSentence = "Hey! Choose the club you want to see ;)) You can also look for a league you want. Just put the country name in the SEARCH panel above me."
 
     turnClubLeft = () => {
         let activeClub = this.state.activeClub;
@@ -90,6 +93,7 @@ class League extends Component {
                     this.state.activeSearch ? <Search /> : <GeneralInfo leagueDetails={this.state.leagueDetails} />
                 }
                 <ClubsSlider clubs={teams} activeClub={this.state.activeClub} left={this.turnClubLeft} right={this.turnClubRight} />
+                {window.innerWidth >= 992 && <Bear sentence={this.bearSentence} flag={this.state.leagueDetails.flag}/>}
                 <Loop toggleActiveSearch={this.toggleActiveSearch} />
             </main>
         );

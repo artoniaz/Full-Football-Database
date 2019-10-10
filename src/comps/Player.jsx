@@ -5,6 +5,7 @@ import PlayerBio from './PlayerBio';
 import PlayerStats from './PlayerStats';
 import Search from './Search';
 import Loop from './Loop';
+import Bear from './Bear';
 
 class Player extends Component {
 
@@ -14,8 +15,11 @@ class Player extends Component {
         teamID: "",
         teamLogo: "",
         nationalTeamName: "",
-        activeSearch: false
+        activeSearch: false,
+        showBearArrow: true
     }
+
+    bearSentence = "Hey! Here you have details about the player. Click FUUL FOOTBALL DATABASE to return to the main menu or look for another league using SEARCH panel above me. Most important, please check my LINKEDIN and GITHUB using links below. Yours, Artur ;))"
 
     toggleActiveSearch = () => {
         this.setState({ activeSearch: !this.state.activeSearch })
@@ -62,6 +66,7 @@ class Player extends Component {
                 {window.innerWidth >= 992 ? <> <Search /> <PlayerBio playerInfo={playerInfo} teamLogo={teamLogo} /> </> :
                 this.state.activeSearch ? <Search /> : <PlayerBio playerInfo={playerInfo} teamLogo={teamLogo} />}
                 {this.state.playerInfo && <PlayerStats playerInfo={playerInfo} />}
+                {window.innerWidth >= 992 && <Bear sentence={this.bearSentence} flag={this.state.teamLogo} showArrow={this.state.showBearArrow}/>}
                 <Loop toggleActiveSearch={this.toggleActiveSearch} />
             </main>
         )

@@ -4,6 +4,7 @@ import ClubDetails from './ClubDetails';
 import PlayerBar from './PlayerBar';
 import Search from './Search';
 import Loop from './Loop';
+import Bear from './Bear';
 
 class TeamInfo extends Component {
 
@@ -13,6 +14,8 @@ class TeamInfo extends Component {
         players: "",
         activeSearch: false
     }
+
+    bearSentence = "Hey! Here you have the full squad of the team for the 2019/2020 season. Just click on the name of the player that you're interested in to see more details. You can always change the league using the SEARCH panel above me.";
 
     toggleActiveSearch = () => {
         this.setState({ activeSearch: !this.state.activeSearch })
@@ -82,6 +85,7 @@ class TeamInfo extends Component {
                     <p>strickers</p>
                     {stricer}
                 </div>
+                {window.innerWidth >= 992 && <Bear sentence={this.bearSentence} flag={this.state.teamInfo.logo}/>}
                 <Loop toggleActiveSearch={this.toggleActiveSearch} />
             </main>
         )

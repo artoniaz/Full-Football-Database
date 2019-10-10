@@ -1,32 +1,33 @@
 
 import React, { Component } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
+
 class Bear extends Component {
 
     state = {
         number: 0,
-        text: ""
+        text: "",
     };
 
-    sentence = "Hey! I'm here to help you. Just choose the country you are interested in and then, the league you wish. Accept with 'choose' button";
-
     addLetter = () => {
-        let txt = this.state.text;
-        txt += this.sentence[this.state.number];
+        const { sentence } = this.props;
+        if (this.state.number >= sentence.length) return;
+        let text = this.state.text;
+        text += sentence[this.state.number];
         this.setState({
             number: this.state.number + 1,
-            txt
+            text
         });
     };
 
-    componentDidUpdate() {
-        this.addLetter();
+    componentDidMount() {
+        this.timeout = setTimeout(() => this.interval = setInterval(this.addLetter, 60), 5000);
     }
 
-    componentDidUpdate() {
-        if (this.state.number <= this.sentence.length) {
-            setInterval(this.addLetter(), 20);
-        }
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render() {
@@ -45,8 +46,10 @@ class Bear extends Component {
                     <div className="bear__paw bear__paw--first"></div>
                     <div className="bear__paw bear__paw--second"></div>
                     <div className="bear__flag" style={{ backgroundImage: `url(${this.props.flag})` }} ></div>
+                    <div className="bear__number">1</div>
                 </div>
-                <p innerHTML={this.state.text}></p>
+                <p dangerouslySetInnerHTML={{ __html: this.state.text }}></p>
+                {this.props.showArrow && <FontAwesomeIcon icon={faLongArrowAltDown} className="bear__arrow" />}
             </div>
         )
     }
