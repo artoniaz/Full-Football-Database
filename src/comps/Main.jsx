@@ -12,7 +12,7 @@ class Main extends Component {
     state = {
         currentCountry: 0,
         currentLeague: 0,
-        currentCountryDetails: ""
+        currentCountryDetails: "",
     };
 
     leaguesData = [
@@ -90,6 +90,34 @@ class Main extends Component {
             });
     }
 
+    handleKeyPress = e => {
+        let { currentCountry } = this.state;
+        const currentLeague = 0;
+        if (e.keyCode === 37) {
+            currentCountry--;
+            if (currentCountry < 0) {
+                currentCountry = this.leaguesData.length - 1;
+            }
+        } else if (e.keyCode === 39) {
+            currentCountry++;
+            if (currentCountry > this.leaguesData.length - 1) {
+                currentCountry = 0;
+            }
+        }
+        const currentCountryName = this.leaguesData[currentCountry].country;
+        const unirest = require('unirest');
+        unirest.get(`https://api-football-v1.p.rapidapi.com/leagues/country/${currentCountryName}/{season}`)
+            .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
+            .header("X-RapidAPI-Key", "1346a6a8d4mshc714b2d3f021692p18d59ejsn2cb7d0c03447")
+            .end((result) => {
+                this.setState({
+                    currentCountry,
+                    currentLeague,
+                    currentCountryDetails: result.body.api.leagues[this.leaguesData[currentCountry].leaguesIDs[currentLeague]]
+                })
+            });
+    }
+
     componentDidMount() {
         const currentCountryName = this.leaguesData[this.state.currentCountry].country;
 
@@ -102,7 +130,13 @@ class Main extends Component {
                     currentCountryDetails: result.body.api.leagues[this.leaguesData[this.state.currentCountry].leaguesIDs[this.state.currentLeague]]
                 })
             });
+
+        document.addEventListener("keydown", this.handleKeyPress);
     };
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.handleKeyPress);
+    }
 
     render() {
         const currentLeagueID = this.leaguesData[this.state.currentCountry].leaguesIDs[this.state.currentLeague];
@@ -113,10 +147,10 @@ class Main extends Component {
                 <article className="main__article">
                     <h2 className="main__header">select the leauge</h2>
                     {this.state.currentCountryDetails.length === 0 ? <Spinner /> :
-                    <form className="main__form--result">
-                        <Country countryDetails={this.state.currentCountryDetails} changeCountry={this.changeCountryOrLeague} />
-                        <Link to={currentPath} className="main__button">choose</Link>
-                    </form> }
+                        <form className="main__form--result">
+                            <Country countryDetails={this.state.currentCountryDetails} changeCountry={this.changeCountryOrLeague} />
+                            <Link to={currentPath} className="main__button">choose</Link>
+                        </form>}
                 </article>
                 {window.innerWidth >= 992 && <Bear flag={this.state.currentCountryDetails.flag} sentence={this.bearSentence} />}
             </main>

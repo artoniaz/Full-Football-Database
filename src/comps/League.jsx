@@ -31,7 +31,7 @@ class League extends Component {
         }
 
         this.setState({
-            activeClub,
+            activeClub
         })
     }
 
@@ -45,7 +45,7 @@ class League extends Component {
         }
 
         this.setState({
-            activeClub,
+            activeClub
         })
     }
 
@@ -106,7 +106,7 @@ class League extends Component {
         return (
             <>
                 {[...teams].length === 0 || leagueDetails.length === 0 ? <Spinner /> : this.content()}
-                <Game />
+                {window.innerWidth >= 992 && <Game />}
             </>
         );
     };

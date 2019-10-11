@@ -2,7 +2,6 @@
 import React from 'react';
 
 const Country = props => {
-
     let { flag, country, logo, name } = props.countryDetails;
     const { changeCountry } = props;
 

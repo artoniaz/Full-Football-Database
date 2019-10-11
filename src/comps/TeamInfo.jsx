@@ -96,8 +96,8 @@ class TeamInfo extends Component {
     render() {
         return (
             <>
-                {this.state.teamInfo.length === 0 || this.state.players.length === 0 ? <Spinner /> : this.content()}
-                <Game />
+                {this.state.teamInfo === undefined || this.state.players === undefined ? <Spinner /> : this.content()}
+                {window.innerWidth >= 992 && <Game />}
             </>
         )
     }

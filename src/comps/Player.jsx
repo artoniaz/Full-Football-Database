@@ -77,7 +77,7 @@ class Player extends Component {
         return (
             <>
                 {this.state.teamLogo === "" ? <Spinner /> : this.content()}
-                <Game />
+                {window.innerWidth >= 992 && <Game />}
             </>
         );
     }

@@ -6,7 +6,7 @@ const Header = () => {
         <>
             <div></div>
             <header className="header">
-                <Link to="/" className="header__title">
+                <Link to="/main" className="header__title">
                     Full Football Database
                 </Link>
             </header>

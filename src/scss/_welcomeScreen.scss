@@ -1,0 +1,47 @@
+.welcomeScreen {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-image: url('../imgs/stadium.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .welcomeScreen__background {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        .weclomeScreen__title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3rem;
+            padding: 200px 0 40px 0;
+            color: $bright-color;
+            text-transform: uppercase;
+        }
+
+        .welcomeScreen__subTitle {
+            font-size: 1.6rem;
+
+            span {
+                font-size: 1.6rem;
+            }
+        }
+
+        .welcomeScreen__text {
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+        }
+
+        .welcomeScreen__button {
+            @include button;
+            display: inline-block;
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 30px;
+        }
+    }
+}

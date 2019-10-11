@@ -35,6 +35,7 @@ body {
     cursor: pointer;
     border: 1px solid $bright-color;
     text-decoration: none;
+    border-radius: 50px;
 }
 
 @mixin wrapper {

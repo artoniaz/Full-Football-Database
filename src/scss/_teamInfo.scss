@@ -1,7 +1,4 @@
 .teamInfo__info {
-    @include border;
-
-
     .teamInfo__imgContainer {
         position: absolute;
         right: 0;
@@ -48,7 +45,9 @@
     }
     @media all and (min-width: 992px) {
         > p {
-        border-right: 1px solid $bright-color;
+        border-right: 2px solid $bright-color;
+        border-radius: 50px;
+
         }
     }
 }
@@ -56,9 +55,14 @@
 .playerBar {
     display: flex;
     align-items: center;
-    border: 1px solid $bright-color;
+    border-left: 2px solid $bright-color;
+    border-right: 2px solid $bright-color;
+    border-top: 1px solid $bright-color;
+    border-bottom: 1px solid $bright-color;
+
     text-decoration: none;
     padding: 8px;
+    border-radius: 50px;
 
     .playerBar__name {
         font-size: 12px;

@@ -9,13 +9,13 @@ const Game = () => {
                 <div className="game__ball"></div>
                 <div className="game__team game__team--first">
                     <div className="game__player game__player--first"><p className="player__numer">1</p></div>
-                    <div className="game__player game__player--first"><p className="player__numer">2</p></div>
-                    <div className="game__player game__player--first"><p className="player__numer">3</p></div>
+                    <div className="game__player game__player--first"><p className="player__numer">7</p></div>
+                    <div className="game__player game__player--first"><p className="player__numer">9</p></div>
                 </div>
                 <div className="game__team game__team--second">
-                    <div className="game__player game__player--second"><p className="player__numer">1</p></div>
-                    <div className="game__player game__player--second"><p className="player__numer">2</p></div>
+                    <div className="game__player game__player--second"><p className="player__numer">12</p></div>
                     <div className="game__player game__player--second"><p className="player__numer">3</p></div>
+                    <div className="game__player game__player--second"><p className="player__numer">8</p></div>
                 </div>
             </div>
         </div>
