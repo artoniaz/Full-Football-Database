@@ -23,7 +23,7 @@ class Bear extends Component {
     };
 
     componentDidMount() {
-        this.timeout = setTimeout(() => this.interval = setInterval(this.addLetter, 60), 5000);
+        this.timeout = setTimeout(() => this.interval = setInterval(this.addLetter, 60), 6000);
     }
 
     componentWillUnmount() {

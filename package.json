@@ -1,5 +1,5 @@
 {
-  "name": "bartender",
+  "name": "ffd",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "react": "^16.8.6",
     "react-animate-height": "^2.0.15",
     "react-dom": "^16.8.6",
+    "react-loader-spinner": "^3.1.4",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "unirest": "^0.6.0"

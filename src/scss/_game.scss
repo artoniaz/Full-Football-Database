@@ -2,115 +2,111 @@ $player__color--main: white;
 $player__color--main2: blue;
 $player__color--minor: red;
 $player__color--minor2: black;
-
-.game__frame {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: $dark-color;
-    opacity: 0.8;
-    z-index: 12;
-}
-
-.game__header {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 12;
-    font-size: 2rem;
-    font-weight: 700;
-    color: black;
-}
-
-.game__pitch {
-    @include center;
-    width: 600px;
-    height: 350px;
-    background-image: url('../imgs/grass-114651_1920.jpg');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: 10px solid $bright-color;
-    z-index: 14;
+$animationTime: 2s;
+$animationDelay: 0.3s;
 
 
+.game__wrapper {
+    animation: hideGame 0.1s 2.3s forwards;
+    visibility: visible;
 
-    .game__player {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        color: black;
-
-        .player__numer {
-            @include center;
-            font-size: 14px;
-            font-weight: 700;
-        }
+    .game__frame {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $dark-color;
+        opacity: 0.8;
+        z-index: 12;
     }
 
-    .game__player--first {
-        background-color: $player__color--main;
-        box-shadow: 0 0 0 3px $player__color--minor;
-    }
-
-    .game__player--first:nth-child(1) {
-        top: 50%;
-        left: 15%;
-        animation: player--first1Anim 2.5s 1s linear forwards;
-    }
-
-    .game__player--first:nth-child(2) {
-        top: 30%;
-        left: 35%;
-        animation: player--first2Anim 2.5s 1s ease-out forwards;
-    }
-
-    .game__player--first:nth-child(3) {
-        top: 70%;
-        left: 55%;
-        animation: player--first3Anim 2.5s 1s ease-out forwards;
-    }
-
-    .game__player--second {
-        background-color: $player__color--main2;
-        box-shadow: 0 0 0 3px $player__color--minor2;
-    }
-
-    .game__player--second:nth-child(1) {
-        top: 50%;
-        left: 85%;
-        animation: player--second1Anim 2.5s 1s linear forwards;
-    }
-
-    .game__player--second:nth-child(2) {
-        top: 40%;
-        left: 65%;
-        animation: player--second2Anim 2.5s 1s linear forwards;
-
-    }
-
-    .game__player--second:nth-child(3) {
-        top: 40%;
-        left: 55%;
-        animation: player--second3Anim 2.5s 1s linear forwards;
-    }
-
-    .game__ball {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-image: url('../imgs/ball.png');
+    .game__pitch {
+        @include center;
+        width: 600px;
+        height: 350px;
+        background-color: $dark-color;
+        background-image: url('../imgs/grass-114651_1920.jpg');
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        top: 51%;
-        left: 19%;
-        animation: ballAnimation 2.5s 1s linear forwards;
+        border: 10px solid $bright-color;
+        z-index: 14;
+
+        .game__player {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            color: black;
+
+            .player__numer {
+                @include center;
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+
+        .game__player--first {
+            background-color: $player__color--main;
+            box-shadow: 0 0 0 3px $player__color--minor;
+        }
+
+        .game__player--first:nth-child(1) {
+            top: 50%;
+            left: 15%;
+            animation: player--first1Anim $animationTime $animationDelay linear forwards;
+        }
+
+        .game__player--first:nth-child(2) {
+            top: 30%;
+            left: 35%;
+            animation: player--first2Anim $animationTime $animationDelay ease-out forwards;
+        }
+
+        .game__player--first:nth-child(3) {
+            top: 70%;
+            left: 55%;
+            animation: player--first3Anim $animationTime $animationDelay ease-out forwards;
+        }
+
+        .game__player--second {
+            background-color: $player__color--main2;
+            box-shadow: 0 0 0 3px $player__color--minor2;
+        }
+
+        .game__player--second:nth-child(1) {
+            top: 50%;
+            left: 85%;
+            animation: player--second1Anim $animationTime $animationDelay linear forwards;
+        }
+
+        .game__player--second:nth-child(2) {
+            top: 40%;
+            left: 65%;
+            animation: player--second2Anim $animationTime $animationDelay linear forwards;
+
+        }
+
+        .game__player--second:nth-child(3) {
+            top: 40%;
+            left: 55%;
+            animation: player--second3Anim $animationTime $animationDelay linear forwards;
+        }
+
+        .game__ball {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-image: url('../imgs/ball.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: 51%;
+            left: 19%;
+            animation: ballAnimation $animationTime $animationDelay linear forwards;
+        }
     }
 }
 
@@ -150,14 +146,17 @@ $player__color--minor2: black;
         top: 50%;
         left: 15%;
     }
+
     30% {
         top: 52%;
         left: 18%;
     }
+
     60% {
         top: 51%;
         left: 20%;
     }
+
     100% {
         top: 50%;
         left: 22%;
@@ -174,6 +173,7 @@ $player__color--minor2: black;
         top: 30%;
         left: 35%;
     }
+
     40% {
         top: 30%;
         left: 35%;
@@ -218,23 +218,27 @@ $player__color--minor2: black;
 }
 
 @keyframes player--second1Anim {
-    0%{
+    0% {
         top: 50%;
         left: 85%;
     }
-    30%{
+
+    30% {
         top: 52%;
         left: 80%;
     }
-    60%{
+
+    60% {
         top: 54%;
         left: 82%;
     }
-    75%{
+
+    75% {
         top: 58%;
         left: 80%;
     }
-    100%{
+
+    100% {
         top: 58%;
         left: 80%;
     }
@@ -250,6 +254,7 @@ $player__color--minor2: black;
         top: 38%;
         left: 45%;
     }
+
     50% {
         top: 38%;
         left: 45%;
@@ -259,7 +264,8 @@ $player__color--minor2: black;
         top: 37%;
         left: 65%;
     }
-    100%{
+
+    100% {
         top: 40%;
         left: 67%;
     }
@@ -275,12 +281,20 @@ $player__color--minor2: black;
         top: 60%;
         left: 50%;
     }
+
     80% {
         top: 47%;
         left: 60%;
     }
-    100%{
+
+    100% {
         top: 47%;
         left: 70%;
+    }
+}
+
+@keyframes hideGame {
+    100% {
+        visibility: hidden;
     }
 }

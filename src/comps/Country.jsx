@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const Country = props => {
@@ -7,7 +8,6 @@ const Country = props => {
 
     if (country === "Poland" && name === "I Liga") {
         logo = "http://kobiecapilka.pl/icons/1liga_logo.jpg";
-
     }
 
     return (
@@ -26,7 +26,6 @@ const Country = props => {
                 <div className="main__imageContainer">
                     <div className="imgContainer">
                         <img src={logo} alt="logo of the choosen league" />
-
                     </div>
                     <i className="fas fa-chevron-left leagueChange" onClick={changeCountry}></i>
                     <i className="fas fa-chevron-right leagueChange" onClick={changeCountry}></i>

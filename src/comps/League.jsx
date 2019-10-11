@@ -6,6 +6,8 @@ import ClubsSlider from './ClubsSlider';
 import Search from './Search';
 import Loop from './Loop';
 import Bear from './Bear';
+import Game from './Game';
+import Spinner from './Loader';
 
 class League extends Component {
 
@@ -77,7 +79,7 @@ class League extends Component {
             });
     }
 
-    render() {
+    content = () => {
         let { teams } = this.state;
         teams = [...teams].sort(function (a, b) {
             if (a.name < b.name)
@@ -93,9 +95,19 @@ class League extends Component {
                     this.state.activeSearch ? <Search /> : <GeneralInfo leagueDetails={this.state.leagueDetails} />
                 }
                 <ClubsSlider clubs={teams} activeClub={this.state.activeClub} left={this.turnClubLeft} right={this.turnClubRight} />
-                {window.innerWidth >= 992 && <Bear sentence={this.bearSentence} flag={this.state.leagueDetails.flag}/>}
+                {window.innerWidth >= 992 && <><Bear sentence={this.bearSentence} flag={this.state.leagueDetails.flag} /></>}
                 <Loop toggleActiveSearch={this.toggleActiveSearch} />
             </main>
+        )
+    };
+
+    render() {
+        let { teams, leagueDetails } = this.state;
+        return (
+            <>
+                {[...teams].length === 0 || leagueDetails.length === 0 ? <Spinner /> : this.content()}
+                <Game />
+            </>
         );
     };
 };

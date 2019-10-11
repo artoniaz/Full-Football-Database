@@ -5,6 +5,8 @@ import PlayerBar from './PlayerBar';
 import Search from './Search';
 import Loop from './Loop';
 import Bear from './Bear';
+import Game from './Game';
+import Spinner from './Loader';
 
 class TeamInfo extends Component {
 
@@ -44,7 +46,7 @@ class TeamInfo extends Component {
             });
     }
 
-    render() {
+    content = () => {
         const { players } = this.state;
         const goalkeepers = [...players].filter(el => (
             el.position === "Goalkeeper"
@@ -74,7 +76,7 @@ class TeamInfo extends Component {
 
         return (
             <main className="main main--teamInfo">
-                {window.innerWidth >= 992 ? <><Search /> <ClubDetails teamInfo={this.state.teamInfo}/> </> : this.state.activeSearch ? <Search /> : <ClubDetails teamInfo={this.state.teamInfo}/>}
+                {window.innerWidth >= 992 ? <><Search /> <ClubDetails teamInfo={this.state.teamInfo} /> </> : this.state.activeSearch ? <Search /> : <ClubDetails teamInfo={this.state.teamInfo} />}
                 <div className="teamInfo__players">
                     <p>Goalkeepers</p>
                     {goalkeeper}
@@ -85,9 +87,18 @@ class TeamInfo extends Component {
                     <p>strickers</p>
                     {stricer}
                 </div>
-                {window.innerWidth >= 992 && <Bear sentence={this.bearSentence} flag={this.state.teamInfo.logo}/>}
+                {window.innerWidth >= 992 && <Bear sentence={this.bearSentence} flag={this.state.teamInfo.logo} />}
                 <Loop toggleActiveSearch={this.toggleActiveSearch} />
             </main>
+        )
+    }
+
+    render() {
+        return (
+            <>
+                {this.state.teamInfo.length === 0 || this.state.players.length === 0 ? <Spinner /> : this.content()}
+                <Game />
+            </>
         )
     }
 }

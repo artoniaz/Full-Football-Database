@@ -3,7 +3,7 @@ import React from 'react';
 
 const Game = () => {
     return (
-        <>
+        <div className="game__wrapper">
             <div className="game__frame"></div>
             <div className="game__pitch">
                 <div className="game__ball"></div>
@@ -18,8 +18,7 @@ const Game = () => {
                     <div className="game__player game__player--second"><p className="player__numer">3</p></div>
                 </div>
             </div>
-            <h1 className="game__header">Loading...</h1>
-        </>
+        </div>
     )
 };
 

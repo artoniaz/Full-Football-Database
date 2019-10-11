@@ -4,14 +4,14 @@ $bear__color--additions: black;
 
 .bear__frame {
     position: relative;
-    top: -10%;
+    top: 0%;
     right: -100%;
     background-color: $dark-color;
     width: 300px;
     height: 400px;
     border: 10px solid transparent;
     z-index: 3;
-    animation: showBear 0.8s 3s linear forwards;
+    animation: showBear 0.8s 5s linear forwards;
 
     .bear__head {
         position: absolute;
@@ -215,10 +215,9 @@ $bear__color--additions: black;
 
     .bear__arrow {
         position: fixed;
-        // visibility: hidden;
-        top: 77%;
-        left: 93%;
-        font-size: 100px;
+        top: 80%;
+        left: 95%;
+        font-size: 85px;
         color: transparent;
         transform: rotate(45deg);
         animation: resizeArrow 5s 5s infinite linear, showArrow 0.8s 20s linear forwards;

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Country from './Country';
 import Search from './Search';
 import Bear from './Bear';
-import Game from './Game';
+import Spinner from './Loader';
 
 class Main extends Component {
 
@@ -109,16 +109,16 @@ class Main extends Component {
         const currentPath = `/league/${currentLeagueID}`;
         return (
             <main className="main">
-                <Search/>
+                <Search />
                 <article className="main__article">
                     <h2 className="main__header">select the leauge</h2>
+                    {this.state.currentCountryDetails.length === 0 ? <Spinner /> :
                     <form className="main__form--result">
                         <Country countryDetails={this.state.currentCountryDetails} changeCountry={this.changeCountryOrLeague} />
                         <Link to={currentPath} className="main__button">choose</Link>
-                    </form>
+                    </form> }
                 </article>
-                {window.innerWidth >= 992 && <Bear flag={this.state.currentCountryDetails.flag} sentence={this.bearSentence}/>}
-                <Game />
+                {window.innerWidth >= 992 && <Bear flag={this.state.currentCountryDetails.flag} sentence={this.bearSentence} />}
             </main>
         )
     };

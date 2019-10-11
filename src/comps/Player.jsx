@@ -6,6 +6,8 @@ import PlayerStats from './PlayerStats';
 import Search from './Search';
 import Loop from './Loop';
 import Bear from './Bear';
+import Game from './Game';
+import Spinner from './Loader';
 
 class Player extends Component {
 
@@ -26,7 +28,6 @@ class Player extends Component {
     };
 
     componentDidMount() {
-
         const { playerID } = this.state;
 
         const unirest = require("unirest");
@@ -59,7 +60,7 @@ class Player extends Component {
         }
     }
 
-    render() {
+    content = () => {
         const { playerInfo, teamLogo } = this.state;
         return (
             <main className="main">
@@ -70,6 +71,15 @@ class Player extends Component {
                 <Loop toggleActiveSearch={this.toggleActiveSearch} />
             </main>
         )
+    }
+
+    render() {
+        return (
+            <>
+                {this.state.teamLogo === "" ? <Spinner /> : this.content()}
+                <Game />
+            </>
+        );
     }
 }
 
