@@ -11,9 +11,7 @@ class ClubsSlider extends Component {
         let minorClub1Index = "";
         let minorClub2Index = "";
         let minorClub1Logo = "";
-        let minorClub1Name = "";
         let minorClub2Logo = "";
-        let minorClub2Name = "";
         let path = "";
 
         if ([...clubs].length !== 0) {
@@ -29,9 +27,7 @@ class ClubsSlider extends Component {
             }
 
             minorClub1Logo = clubs[minorClub1Index].logo;
-            minorClub1Name = clubs[minorClub1Index].name;
             minorClub2Logo = clubs[minorClub2Index].logo;
-            minorClub2Name = clubs[minorClub2Index].name;
             path = `/team/${clubs[activeClubIndex].team_id}`;
         };
 

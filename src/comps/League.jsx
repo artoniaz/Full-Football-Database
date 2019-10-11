@@ -49,6 +49,12 @@ class League extends Component {
         })
     }
 
+    handleKeyDown = e => {
+        if (e.keyCode === 37) this.turnClubLeft();
+        else if (e.keyCode === 39) this.turnClubRight();
+        else return;
+    }
+
     toggleActiveSearch = () => {
         this.setState({ activeSearch: !this.state.activeSearch })
     };
@@ -77,6 +83,11 @@ class League extends Component {
                     teams,
                 })
             });
+            document.addEventListener("keydown", this.handleKeyDown);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.handleKeyDown);
     }
 
     content = () => {

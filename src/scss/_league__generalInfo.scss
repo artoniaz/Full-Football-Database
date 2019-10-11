@@ -22,7 +22,7 @@
 
         @media all and (min-width: 600px) {
             img {
-                width: 50%;
+                width: 30%;
             }
         }
     }
@@ -34,11 +34,5 @@
 
     .generalInfo__imgContainer--left {
         left: 2vw;
-    }
-}
-
-@media all and (min-width: 992px) {
-    .generalInfo {
-        // border-right: 5px solid $bright-color;
     }
 }
