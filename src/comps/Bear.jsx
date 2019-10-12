@@ -48,7 +48,7 @@ class Bear extends Component {
                     <div className="bear__flag" style={{ backgroundImage: `url(${this.props.flag})` }} ></div>
                     <div className="bear__number">1</div>
                 </div>
-                <p dangerouslySetInnerHTML={{ __html: this.state.text }}></p>
+                <p>{this.state.text}</p>
                 {this.props.showArrow && <FontAwesomeIcon icon={faLongArrowAltDown} className="bear__arrow" />}
             </div>
         )

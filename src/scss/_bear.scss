@@ -12,6 +12,7 @@ $bear__color--additions: black;
     border: 10px solid transparent;
     z-index: 3;
     animation: showBear 0.8s 5s linear forwards;
+    align-self: end;
 
     .bear__head {
         position: absolute;
