@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Full-Football-Database/static/css/main.0b0ce94a.chunk.css",
-    "main.js": "/Full-Football-Database/static/js/main.d9524920.chunk.js",
-    "main.js.map": "/Full-Football-Database/static/js/main.d9524920.chunk.js.map",
+    "main.css": "/Full-Football-Database/static/css/main.9f387df5.chunk.css",
+    "main.js": "/Full-Football-Database/static/js/main.67785eae.chunk.js",
+    "main.js.map": "/Full-Football-Database/static/js/main.67785eae.chunk.js.map",
     "runtime~main.js": "/Full-Football-Database/static/js/runtime~main.1d24f923.js",
     "runtime~main.js.map": "/Full-Football-Database/static/js/runtime~main.1d24f923.js.map",
     "static/js/2.5379f705.chunk.js": "/Full-Football-Database/static/js/2.5379f705.chunk.js",
     "static/js/2.5379f705.chunk.js.map": "/Full-Football-Database/static/js/2.5379f705.chunk.js.map",
     "index.html": "/Full-Football-Database/index.html",
-    "precache-manifest.7a9f154a2d6bf99bea72b44dd76e5ed4.js": "/Full-Football-Database/precache-manifest.7a9f154a2d6bf99bea72b44dd76e5ed4.js",
+    "precache-manifest.6b9638ff26a442b2e811169ffcddb387.js": "/Full-Football-Database/precache-manifest.6b9638ff26a442b2e811169ffcddb387.js",
     "service-worker.js": "/Full-Football-Database/service-worker.js",
-    "static/css/main.0b0ce94a.chunk.css.map": "/Full-Football-Database/static/css/main.0b0ce94a.chunk.css.map",
+    "static/css/main.9f387df5.chunk.css.map": "/Full-Football-Database/static/css/main.9f387df5.chunk.css.map",
     "static/media/App.css": "/Full-Football-Database/static/media/stadium.db31a750.jpg"
   }
 }
