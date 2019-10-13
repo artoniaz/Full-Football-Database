@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d1b665417ad6ece5eca6be60401b8845",
+    "revision": "0e5cf6415c928f2c8c7d7fa4fa7b6485",
     "url": "/Full-Football-Database/index.html"
   },
   {
-    "revision": "da5ad04f8c4ee485780e",
+    "revision": "12d1eae31f9950d2f4a8",
     "url": "/Full-Football-Database/static/css/main.9f387df5.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Full-Football-Database/static/js/2.5379f705.chunk.js"
   },
   {
-    "revision": "da5ad04f8c4ee485780e",
-    "url": "/Full-Football-Database/static/js/main.67785eae.chunk.js"
+    "revision": "12d1eae31f9950d2f4a8",
+    "url": "/Full-Football-Database/static/js/main.ab6b4c31.chunk.js"
   },
   {
     "revision": "592726bfd5ebf58a74f4",
