@@ -93,7 +93,11 @@ class League extends Component {
 
     const resultTeams = await FootballAPI(`v2/teams/league/${leagueID}`);
     const teams = resultTeams.body.api.teams;
-    this.setState({ teams, leagueDetails });
+    this.setState({
+      teams,
+      leagueDetails,
+      activeSearch: false
+    });
     document.addEventListener("keydown", this.handleKeyDown);
   };
 
@@ -108,7 +112,6 @@ class League extends Component {
         <main className="main">
           {window.innerWidth >= 992 ? (
             <>
-              {" "}
               <Search />
               <GeneralInfo leagueDetails={this.state.leagueDetails} />
             </>
