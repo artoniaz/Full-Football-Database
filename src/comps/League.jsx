@@ -8,7 +8,6 @@ import Bear from "./Bear";
 import Game from "./Game";
 import Spinner from "./Loader";
 import FootballAPI from "./FootballAPI";
-import { async } from "q";
 
 class League extends Component {
   state = {
@@ -49,10 +48,25 @@ class League extends Component {
     });
   };
 
+  sortTeams = () => {
+    let { teams } = this.state;
+    teams = [...teams].sort(function(a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+    return teams;
+  };
+
   handleKeyDown = e => {
     if (e.keyCode === 37) this.turnClubLeft();
     else if (e.keyCode === 39) this.turnClubRight();
-    else return;
+    else if (e.keyCode === 13) {
+      const teams = this.sortTeams();
+      const path = `/team/${teams[this.state.activeClub].team_id}`;
+      this.props.history.push(path);
+      return;
+    } else return;
   };
 
   toggleActiveSearch = () => {
@@ -72,13 +86,14 @@ class League extends Component {
   fetchLeague = async () => {
     const leagueID = this.props.match.params.league;
 
-    FootballAPI(`leagues/league/${leagueID}`).then(result => {
-      this.setState({ leagueDetails: result.body.api.leagues[0] });
-    });
+    const resultLeagueDetails = await FootballAPI(
+      `v2/leagues/league/${leagueID}`
+    );
+    const leagueDetails = resultLeagueDetails.body.api.leagues[0];
 
-    const result = await FootballAPI(`teams/league/${leagueID}`);
-    const teams = result.body.api.teams;
-    this.setState({ teams });
+    const resultTeams = await FootballAPI(`v2/teams/league/${leagueID}`);
+    const teams = resultTeams.body.api.teams;
+    this.setState({ teams, leagueDetails });
     document.addEventListener("keydown", this.handleKeyDown);
   };
 
@@ -87,12 +102,7 @@ class League extends Component {
   }
 
   content = () => {
-    let { teams } = this.state;
-    teams = [...teams].sort(function(a, b) {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    });
+    const teams = this.sortTeams();
     return (
       <>
         <main className="main">
@@ -100,7 +110,7 @@ class League extends Component {
             <>
               {" "}
               <Search />
-              <GeneralInfo leagueDetails={this.state.leagueDetails} />{" "}
+              <GeneralInfo leagueDetails={this.state.leagueDetails} />
             </>
           ) : this.state.activeSearch ? (
             <Search />

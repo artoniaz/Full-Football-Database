@@ -1,39 +1,39 @@
 .header,
 .footer {
-    background-color: $bright-color;
-    color: $dark-color;
-    font-family: 'Permanent Marker', cursive;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    z-index: 9;
+  background-color: $bright-color;
+  color: $dark-color;
+  font-family: "Permanent Marker", cursive;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 9;
 }
 
 .header {
-    top: 0;
+  top: 0;
 
-    .header__title {
-        color: $dark-color;
-        text-decoration: none;
-        font-size: 2em;
-        font-weight: 700;
-    }
+  .header__title {
+    color: $dark-color;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 700;
+  }
 }
 
 .footer {
-    bottom: 0;
-    a {
-        position: absolute;
-        right: 5%;
-        color: $dark-color;
-        .footer__icon {
-            font-size: 30px;
-        }
+  bottom: 0;
+  a {
+    position: absolute;
+    right: 5%;
+    color: $dark-color;
+    .footer__icon {
+      font-size: 30px;
     }
-    a:nth-child(3) {
-        margin-right: 35px;
-    }
+  }
+  a:nth-child(3) {
+    margin-right: 35px;
+  }
 }

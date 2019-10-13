@@ -5,297 +5,297 @@ $player__color--minor2: black;
 $animationTime: 2s;
 $animationDelay: 0.3s;
 
-
 .game__wrapper {
-    animation: hideGame 0.1s 2.3s forwards;
-    visibility: visible;
+  animation: hideGame 0.1s 2.3s forwards;
+  visibility: visible;
 
-    .game__frame {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: $dark-color;
-        opacity: 0.8;
-        z-index: 12;
-    }
+  .game__frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $dark-color;
+    opacity: 0.8;
+    z-index: 12;
+  }
 
-    .game__pitch {
+  .game__pitch {
+    @include center;
+    width: 600px;
+    height: 350px;
+    background-color: $dark-color;
+    background-image: url("../imgs/grass-114651_1920.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 10px solid $bright-color;
+    z-index: 14;
+    border-radius: 50px;
+
+    .game__player {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: black;
+
+      .player__numer {
         @include center;
-        width: 600px;
-        height: 350px;
-        background-color: $dark-color;
-        background-image: url('../imgs/grass-114651_1920.jpg');
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        border: 10px solid $bright-color;
-        z-index: 14;
-        border-radius: 50px;
-
-        .game__player {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            color: black;
-
-            .player__numer {
-                @include center;
-                font-size: 14px;
-                font-weight: 700;
-            }
-        }
-
-        .game__player--first {
-            background-color: $player__color--main;
-            box-shadow: 0 0 0 3px $player__color--minor;
-        }
-
-        .game__player--first:nth-child(1) {
-            top: 50%;
-            left: 15%;
-            animation: player--first1Anim $animationTime $animationDelay linear forwards;
-        }
-
-        .game__player--first:nth-child(2) {
-            top: 30%;
-            left: 35%;
-            animation: player--first2Anim $animationTime $animationDelay ease-out forwards;
-        }
-
-        .game__player--first:nth-child(3) {
-            top: 70%;
-            left: 55%;
-            animation: player--first3Anim $animationTime $animationDelay ease-out forwards;
-        }
-
-        .game__player--second {
-            background-color: $player__color--main2;
-            box-shadow: 0 0 0 3px $player__color--minor2;
-        }
-
-        .game__player--second:nth-child(1) {
-            top: 50%;
-            left: 85%;
-            animation: player--second1Anim $animationTime $animationDelay linear forwards;
-        }
-
-        .game__player--second:nth-child(2) {
-            top: 40%;
-            left: 65%;
-            animation: player--second2Anim $animationTime $animationDelay linear forwards;
-
-        }
-
-        .game__player--second:nth-child(3) {
-            top: 40%;
-            left: 55%;
-            animation: player--second3Anim $animationTime $animationDelay linear forwards;
-        }
-
-        .game__ball {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-image: url('../imgs/ball.png');
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            top: 51%;
-            left: 19%;
-            animation: ballAnimation $animationTime $animationDelay linear forwards;
-        }
+        font-size: 14px;
+        font-weight: 700;
+      }
     }
+
+    .game__player--first {
+      background-color: $player__color--main;
+      box-shadow: 0 0 0 3px $player__color--minor;
+    }
+
+    .game__player--first:nth-child(1) {
+      top: 50%;
+      left: 15%;
+      animation: player--first1Anim $animationTime $animationDelay linear
+        forwards;
+    }
+
+    .game__player--first:nth-child(2) {
+      top: 30%;
+      left: 35%;
+      animation: player--first2Anim $animationTime $animationDelay ease-out
+        forwards;
+    }
+
+    .game__player--first:nth-child(3) {
+      top: 70%;
+      left: 55%;
+      animation: player--first3Anim $animationTime $animationDelay ease-out
+        forwards;
+    }
+
+    .game__player--second {
+      background-color: $player__color--main2;
+      box-shadow: 0 0 0 3px $player__color--minor2;
+    }
+
+    .game__player--second:nth-child(1) {
+      top: 50%;
+      left: 85%;
+      animation: player--second1Anim $animationTime $animationDelay linear
+        forwards;
+    }
+
+    .game__player--second:nth-child(2) {
+      top: 40%;
+      left: 65%;
+      animation: player--second2Anim $animationTime $animationDelay linear
+        forwards;
+    }
+
+    .game__player--second:nth-child(3) {
+      top: 40%;
+      left: 55%;
+      animation: player--second3Anim $animationTime $animationDelay linear
+        forwards;
+    }
+
+    .game__ball {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-image: url("../imgs/ball.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      top: 51%;
+      left: 19%;
+      animation: ballAnimation $animationTime $animationDelay linear forwards;
+    }
+  }
 }
 
 @keyframes ballAnimation {
-    0% {
-        top: 51%;
-        left: 19%;
-    }
+  0% {
+    top: 51%;
+    left: 19%;
+  }
 
-    30% {
-        //player 2
-        top: 37%;
-        left: 35%;
-    }
+  30% {
+    top: 37%;
+    left: 35%;
+  }
 
-    60% {
-        //długie podanie
-        top: 57%;
-        left: 70%;
-    }
+  60% {
+    top: 57%;
+    left: 70%;
+  }
 
-    75% {
-        //player 3
-        top: 57%;
-        left: 70%;
-    }
+  75% {
+    top: 57%;
+    left: 70%;
+  }
 
-    100% {
-        //gol
-        top: 50%;
-        left: 90%;
-    }
+  100% {
+    top: 50%;
+    left: 90%;
+  }
 }
 
 @keyframes player--first1Anim {
-    0% {
-        top: 50%;
-        left: 15%;
-    }
+  0% {
+    top: 50%;
+    left: 15%;
+  }
 
-    30% {
-        top: 52%;
-        left: 18%;
-    }
+  30% {
+    top: 52%;
+    left: 18%;
+  }
 
-    60% {
-        top: 51%;
-        left: 20%;
-    }
+  60% {
+    top: 51%;
+    left: 20%;
+  }
 
-    100% {
-        top: 50%;
-        left: 22%;
-    }
+  100% {
+    top: 50%;
+    left: 22%;
+  }
 }
 
 @keyframes player--first2Anim {
-    0% {
-        top: 30%;
-        left: 35%;
-    }
+  0% {
+    top: 30%;
+    left: 35%;
+  }
 
-    30% {
-        top: 30%;
-        left: 35%;
-    }
+  30% {
+    top: 30%;
+    left: 35%;
+  }
 
-    40% {
-        top: 30%;
-        left: 35%;
-    }
+  40% {
+    top: 30%;
+    left: 35%;
+  }
 
-    80% {
-        top: 28%;
-        left: 65%;
-    }
+  80% {
+    top: 28%;
+    left: 65%;
+  }
 
-    100% {
-        top: 35%;
-        left: 75%;
-    }
+  100% {
+    top: 35%;
+    left: 75%;
+  }
 }
 
 @keyframes player--first3Anim {
-    0% {
-        top: 70%;
-        left: 55%;
-    }
+  0% {
+    top: 70%;
+    left: 55%;
+  }
 
-    30% {
-        top: 65%;
-        left: 45%;
-    }
+  30% {
+    top: 65%;
+    left: 45%;
+  }
 
-    70% {
-        top: 57%;
-        left: 70%;
-    }
+  70% {
+    top: 57%;
+    left: 70%;
+  }
 
-    75% {
-        top: 57%;
-        left: 70%;
-    }
+  75% {
+    top: 57%;
+    left: 70%;
+  }
 
-    100% {
-        top: 65%;
-        left: 80%;
-    }
+  100% {
+    top: 65%;
+    left: 80%;
+  }
 }
 
 @keyframes player--second1Anim {
-    0% {
-        top: 50%;
-        left: 85%;
-    }
+  0% {
+    top: 50%;
+    left: 85%;
+  }
 
-    30% {
-        top: 52%;
-        left: 80%;
-    }
+  30% {
+    top: 52%;
+    left: 80%;
+  }
 
-    60% {
-        top: 54%;
-        left: 82%;
-    }
+  60% {
+    top: 54%;
+    left: 82%;
+  }
 
-    75% {
-        top: 58%;
-        left: 80%;
-    }
+  75% {
+    top: 58%;
+    left: 80%;
+  }
 
-    100% {
-        top: 58%;
-        left: 80%;
-    }
+  100% {
+    top: 58%;
+    left: 80%;
+  }
 }
 
 @keyframes player--second2Anim {
-    0% {
-        top: 40%;
-        left: 65%;
-    }
+  0% {
+    top: 40%;
+    left: 65%;
+  }
 
-    30% {
-        top: 38%;
-        left: 45%;
-    }
+  30% {
+    top: 38%;
+    left: 45%;
+  }
 
-    50% {
-        top: 38%;
-        left: 45%;
-    }
+  50% {
+    top: 38%;
+    left: 45%;
+  }
 
-    75% {
-        top: 37%;
-        left: 65%;
-    }
+  75% {
+    top: 37%;
+    left: 65%;
+  }
 
-    100% {
-        top: 40%;
-        left: 67%;
-    }
+  100% {
+    top: 40%;
+    left: 67%;
+  }
 }
 
 @keyframes player--second3Anim {
-    0% {
-        top: 40%;
-        left: 55%;
-    }
+  0% {
+    top: 40%;
+    left: 55%;
+  }
 
-    30% {
-        top: 60%;
-        left: 50%;
-    }
+  30% {
+    top: 60%;
+    left: 50%;
+  }
 
-    80% {
-        top: 47%;
-        left: 60%;
-    }
+  80% {
+    top: 47%;
+    left: 60%;
+  }
 
-    100% {
-        top: 47%;
-        left: 70%;
-    }
+  100% {
+    top: 47%;
+    left: 70%;
+  }
 }
 
 @keyframes hideGame {
-    100% {
-        visibility: hidden;
-    }
+  100% {
+    visibility: hidden;
+  }
 }

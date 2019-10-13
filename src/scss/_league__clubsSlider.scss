@@ -1,72 +1,72 @@
 .clubsSlider {
-    position: relative;
+  position: relative;
 
-    .clubsSlider__activeClub {
-        @include center;
-        top: 40%;
+  .clubsSlider__activeClub {
+    @include center;
+    top: 40%;
 
-        h2 {
-            font-size: 20px;
-        }
+    h2 {
+      font-size: 20px;
     }
+  }
 
-    .clubsSlider__minorClub {
-        position: absolute;
-        top: 40%;
-        transform: translateY(-50%) scale(0.5);
-        cursor: pointer;
-        filter: grayscale(100%);
-    }
+  .clubsSlider__minorClub {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%) scale(0.5);
+    cursor: pointer;
+    filter: grayscale(100%);
+  }
 
-    .clubsSlider__minorClub--left {
-        left: -5%;
-    }
+  .clubsSlider__minorClub--left {
+    left: -5%;
+  }
 
-    .clubsSlider__minorClub--right {
-        right: -5%;
-    }
+  .clubsSlider__minorClub--right {
+    right: -5%;
+  }
 
-    .clubsSlider__button {
-        @include button;
-        position: absolute;
-        font-size: 20px;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+  .clubsSlider__button {
+    @include button;
+    position: absolute;
+    font-size: 20px;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media all and (min-width: 568px) {
-    .clubsSlider {
-        min-height: 300px;
+  .clubsSlider {
+    min-height: 300px;
 
-        .clubsSlider__minorClub {
-            transform: translateY(-50%) scale(0.7);
-        }
-
-        .clubsSlider__minorClub--left {
-            left: 10%;
-        }
-
-        .clubsSlider__minorClub--right {
-            right: 10%;
-        }
+    .clubsSlider__minorClub {
+      transform: translateY(-50%) scale(0.7);
     }
+
+    .clubsSlider__minorClub--left {
+      left: 10%;
+    }
+
+    .clubsSlider__minorClub--right {
+      right: 10%;
+    }
+  }
 }
 
 @media all and (min-width: 1200px) {
-    .clubsSlider {
-        .clubsSlider__activeClub {
-            img {
-                transform: scale(1.1)
-            }
-            h2 {
-                margin-top: 25px;
-            }
-        }
-
-        .clubsSlider__minorClub {
-            transform: translateY(-50%) scale(1);
-        }
+  .clubsSlider {
+    .clubsSlider__activeClub {
+      img {
+        transform: scale(1.1);
+      }
+      h2 {
+        margin-top: 25px;
+      }
     }
+
+    .clubsSlider__minorClub {
+      transform: translateY(-50%) scale(1);
+    }
+  }
 }

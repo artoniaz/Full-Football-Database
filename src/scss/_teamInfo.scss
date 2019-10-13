@@ -1,129 +1,90 @@
 .teamInfo__info {
-    .teamInfo__imgContainer {
-        position: absolute;
-        right: 0;
-        margin: 2vw;
-        width: 20%;
+  .teamInfo__imgContainer {
+    position: absolute;
+    right: 0;
+    margin: 2vw;
+    width: 20%;
 
-
-        .teamInfo__img {
-            width: 100%;
-        }
-
-        @media all and (min-width: 500px) {
-            .teamInfo__img {
-                width: 60%;
-            }
-        }
+    .teamInfo__img {
+      width: 100%;
     }
 
-    .teamInfo__text {
-        text-align: left;
-        margin: 2vw;
-        margin-left: 8vw;
-
-        h2 {
-            text-align: center;
-            font-size: 18px;
-            margin: 5px;
-        }
-
-        p {
-            margin: 2px;
-            font-size: 12px;
-        }
+    @media all and (min-width: 500px) {
+      .teamInfo__img {
+        width: 60%;
+      }
     }
+  }
+
+  .teamInfo__text {
+    text-align: left;
+    margin: 2vw;
+    margin-left: 8vw;
+
+    h2 {
+      text-align: center;
+      font-size: 18px;
+      margin: 5px;
+    }
+
+    p {
+      margin: 2px;
+      font-size: 12px;
+    }
+  }
 }
 
 .teamInfo__players {
-    >p {
-        font-size: 16px;
-        text-transform: uppercase;
-        padding: 10px;
-        border-top: 3px solid $bright-color;
-        border-bottom: 3px solid $bright-color;
+  > p {
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px;
+    border-top: 3px solid $bright-color;
+    border-bottom: 3px solid $bright-color;
+  }
+  @media all and (min-width: 992px) {
+    > p {
+      border-right: 2px solid $bright-color;
+      border-radius: 50px;
     }
-    @media all and (min-width: 992px) {
-        > p {
-        border-right: 2px solid $bright-color;
-        border-radius: 50px;
-
-        }
-    }
+  }
 }
 
 .playerBar {
-    display: flex;
-    align-items: center;
-    border-left: 2px solid $bright-color;
-    border-right: 2px solid $bright-color;
-    border-top: 1px solid $bright-color;
-    border-bottom: 1px solid $bright-color;
+  display: flex;
+  align-items: center;
+  border-left: 2px solid $bright-color;
+  border-right: 2px solid $bright-color;
+  border-top: 1px solid $bright-color;
+  border-bottom: 1px solid $bright-color;
 
-    text-decoration: none;
-    padding: 8px;
-    border-radius: 50px;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 50px;
 
-    .playerBar__name {
-        font-size: 12px;
-        color: white;
-        margin-left: 20px;
-    }
+  .playerBar__name {
+    font-size: 12px;
+    color: white;
+    margin-left: 20px;
+  }
 
-    .playerBar__flag {
-        background-position: center;
-        background-size: cover;
-        width: 20px;
-        height: 14px;
-        margin-left: 20px;
-    }
+  .playerBar__flag {
+    background-position: center;
+    background-size: cover;
+    width: 20px;
+    height: 14px;
+    margin-left: 20px;
+  }
 }
 
 @media all and (min-width: 992px) {
-    .teamInfo__info {
+  .teamInfo__info {
+    .teamInfo__imgContainer {
+      transform: translate(-100%);
 
-        // border-right: 10px solid $bright-color;
-        .teamInfo__imgContainer {
-            transform: translate(-100%);
-
-            .teamInfo__img {
-                width: 35%;
-            }
-        }
+      .teamInfo__img {
+        width: 35%;
+      }
     }
-
-    // .teamInfo__players {
-    //     >p {
-    //         border-right: 1px solid $bright-color;
-    //     }
-    // }
+  }
 }
-
-// .playerBar {
-//     text-align: left;
-//     border: 1px solid $bright-color;
-//     padding: 8px;
-//     font-size: 12px;
-//     display: block;
-//     color: white;
-//     text-decoration: none;
-
-//     // .playerBar__number {
-//     //     margin-left: 40px;
-//     // }
-
-//     .playerBar__name {
-//         display: inline-block;
-//         margin-left: 20px;
-//     }
-
-//     .playerBar__flag {
-//         display: inline-block;
-//         background-position: center;
-//         background-size: cover;
-//         width: 20px;
-//         height: 14px;
-//         margin-left: 20px;
-//     }
-
-// }

@@ -1,38 +1,38 @@
 .generalInfo {
-    position: relative;
-    padding: 20px;
-    @include border;
+  position: relative;
+  padding: 20px;
+  @include border;
 
-    .generalInfo__headers {
-        @include center;
+  .generalInfo__headers {
+    @include center;
 
-        h1 {
-            @include small-header;
-        }
+    h1 {
+      @include small-header;
+    }
+  }
+
+  .generalInfo__imgContainer {
+    position: absolute;
+    top: 2vw;
+    width: 20%;
+
+    img {
+      width: 100%;
     }
 
-    .generalInfo__imgContainer {
-        position: absolute;
-        top: 2vw;
-        width: 20%;
-
-        img {
-            width: 100%;
-        }
-
-        @media all and (min-width: 600px) {
-            img {
-                width: 30%;
-            }
-        }
+    @media all and (min-width: 600px) {
+      img {
+        width: 50%;
+        max-height: 100px;
+      }
     }
+  }
 
-    .generalInfo__imgContainer--right {
-        right: 2vw;
+  .generalInfo__imgContainer--right {
+    right: 2vw;
+  }
 
-    }
-
-    .generalInfo__imgContainer--left {
-        left: 2vw;
-    }
+  .generalInfo__imgContainer--left {
+    left: 2vw;
+  }
 }
